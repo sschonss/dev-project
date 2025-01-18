@@ -2,7 +2,7 @@
 
 namespace App\Domains\Auth\Controllers;
 
-use App\Domains\Auth\Requests\TechicalDegreeRequest;
+use App\Domains\Auth\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -13,7 +13,7 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(TechicalDegreeRequest $request): Response
+    public function store(LoginRequest $request): Response
     {
         $request->authenticate();
 
