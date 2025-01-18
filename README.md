@@ -31,6 +31,7 @@ O retorno dos endpoints foram padronizados por um Trait para não precisar ficar
 
 Em momentos de consultas mais críticas, optei por usar o DB Transaction para garantir a integridade dos dados.
 
+
 ### ADR 2: Frontend
 
 O frontend foi desenvolvido em Angular, e foi escolhido por ser um framework que eu menos trabalhei.
@@ -66,7 +67,21 @@ A modelagem do banco de dados foi feita de acordo com o que foi pedido no desafi
 
 ## Como rodar o backend
 
-// TODO
+O Starter Kit usado foi o Laravel Sail, por ser o mais atualizado e com todas as configuraçoes.
+
+Para começar um projeto com Sail, digite no terminal: `curl -s "https://laravel.build/backend?with=mysql,redis" | bash`
+
+Para rodar o projeto, basta digitar `./vendor/bin/sail up` no terminal.
+
+Mas antes, é necessário configurar o arquivo `.env` com as informações do banco de dados.
+
+Para facilitar rodar o projeto, eu criei algumas configurações no arquivo `docker-compose.yml` para facilitar a execução do projeto.
+
+Rode o comando `docker-compose up --force-recreate --remove-orphans --build` para subir o projeto.
+
+O `force-recreate` é para forçar a recriação dos containers, o `remove-orphans` é para remover os containers que não estão sendo usados e o `build` é para reconstruir as imagens.
+
+Isso não é obrigatório, mas ajuda a manter o ambiente limpo e caso onde se roda muitos containers, é bom para liberar espaço.
 
 ## Hospedagem do projeto
 
