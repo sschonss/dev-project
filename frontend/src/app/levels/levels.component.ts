@@ -62,20 +62,25 @@ export class LevelsComponent implements OnInit {
 
   handleError(error: any): void {
     const status = error?.status;
-    if (status === 401) {
-      this.errorMessage = 'You are not authorized to view this page. Please log in.';
-    }
-    if (status === 404) {
-      this.errorMessage = '';
-    }
-    if (status >= 405 && status < 500) {
-      this.errorMessage = 'Client error. Please check your input and try again.';
-    }
-    if (status >= 500) {
-      this.errorMessage = 'Server error. Please try again later.';
-    }
 
-    console.error('Error fetching levels:', error);
+    switch (status) {
+      case 400:
+        this.errorMessage = 'Invalid input. Please check your input and try again.';
+        break;
+      case 401:
+        this.errorMessage = 'You are not authorized to view this page. Please log in.';
+        break;
+      case 404:
+        this.errorMessage = '';
+        break;
+      default:
+        if (status >= 405 && status < 500) {
+          this.errorMessage = 'Client error. Please check your input and try again.';
+        } else if (status >= 500) {
+          this.errorMessage = 'Server error. Please try again later.';
+        }
+        break;
+    }
   }
 
   deleteLevel(level: any) {

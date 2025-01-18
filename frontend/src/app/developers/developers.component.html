@@ -1,2 +1,77 @@
-<h2><i class="fas fa-users"></i> Developers</h2>
-<p id="p-developers">Manage your developers efficiently.</p>
+<div *ngIf="isLoading">
+  <p>Loading...</p>
+</div>
+
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="!isLoading" id="developers-content">
+  <div id="add-developer">
+    <input type="text" [(ngModel)]="newDeveloper.name" placeholder="Name">
+    <select [(ngModel)]="newDeveloper.gender">
+      <option value="M">Male</option>
+      <option value="F">Female</option>
+    </select>
+    <select [(ngModel)]="newDeveloper.level_id">
+      <option *ngFor="let level of levels" [value]="level.id">{{ level.level }}</option>
+    </select>
+    <input type="text" [(ngModel)]="newDeveloper.hobby" placeholder="Hobby">
+    <input type="date" [(ngModel)]="newDeveloper.birth_date">
+    <button (click)="addDeveloper()">Add Developer</button>
+  </div>
+
+  <table id="table-developers">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Hobby</th>
+      <th>Birth Date</th>
+      <th>Level</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let developer of developers">
+      <td>{{ developer.id }}</td>
+      <td>
+        <span *ngIf="!developer.isEditing">{{ developer.name }}</span>
+        <input *ngIf="developer.isEditing" type="text" [(ngModel)]="developer.name" />
+      </td>
+      <td>
+        <span *ngIf="!developer.isEditing">{{ developer.gender }}</span>
+        <select *ngIf="developer.isEditing" [(ngModel)]="developer.gender">
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+        </select>
+      </td>
+      <td>
+        <span *ngIf="!developer.isEditing">{{ developer.hobby }}</span>
+        <input *ngIf="developer.isEditing" type="text" [(ngModel)]="developer.hobby" />
+      </td>
+      <td>
+        <span *ngIf="!developer.isEditing">{{ developer.birth_date }}</span>
+        <input *ngIf="developer.isEditing" type="date" [(ngModel)]="developer.birth_date" />
+      </td>
+      <td>
+        <span *ngIf="!developer.isEditing">{{ developer.level?.level }}</span>
+        <select *ngIf="developer.isEditing" [(ngModel)]="developer.level_id">
+          <option *ngFor="let level of levels" [value]="level.id">{{ level.level }}</option>
+        </select>
+      </td>
+      <td>
+        <div class="button-container">
+          <button *ngIf="!developer.isEditing" (click)="editDeveloper(developer)">Edit</button>
+          <button *ngIf="developer.isEditing" (click)="updateDeveloper(developer)">Save</button>
+          <button *ngIf="developer.isEditing" (click)="cancelEdit(developer)">Cancel</button>
+          <button class="btn-delete" (click)="deleteDeveloper(developer)">Delete</button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="developers.length === 0">No developers found</p>
+</div>
