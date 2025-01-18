@@ -48,7 +48,7 @@ class LevelService
         if (!$level) {
             return null;
         }
-        
+
         if ($level->developers->isNotEmpty()) {
             return null;
         }
