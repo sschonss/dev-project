@@ -86,3 +86,15 @@ Isso não é obrigatório, mas ajuda a manter o ambiente limpo e caso onde se ro
 ## Hospedagem do projeto
 
 // TODO
+
+## Pipeline
+
+## O que falta ainda
+
+- Fluxo de Level (BE + FE)
+- Fluxo de Developer (BE + FE)
+- Testes de integração
+- Pipeline
+- Documentação dos endpoints
+- Hospedagem do projeto
+- Docker Compose Geral

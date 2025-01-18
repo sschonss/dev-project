@@ -4,13 +4,14 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../environments/environments';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterModule],
 })
 export class LoginComponent {
   email: string = '';
@@ -29,7 +30,7 @@ export class LoginComponent {
 
     this.http.post(`${environment.apiUrl}/login`, credentials).subscribe({
       next: (response: any) => {
-        
+
         const token = response.token;
 
         localStorage.setItem('authToken', token);

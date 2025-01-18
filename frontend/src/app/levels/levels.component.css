@@ -1,0 +1,105 @@
+#levels-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  padding-top: 80px; /* Space for fixed header */
+}
+
+#loading-container, #error-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#error-container .error {
+  color: #dc3545;
+  margin-bottom: 20px;
+}
+
+#levels-content input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 300px; /* Adjusted max-width */
+  margin-right: 15px;
+  flex: 1;
+}
+
+#levels-content button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-left: 5px;
+}
+
+#levels-content button:hover {
+  background-color: #0056b3;
+  transform: scale(1.02);
+}
+
+.btn-delete {
+  background-color: #dc3545;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+#levels-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 40px;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #f8f9fa;
+}
+
+#table-levels {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  table-layout: fixed;
+}
+
+#table-levels th,
+#table-levels td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+  width: 33.33%;
+  box-sizing: border-box;
+  min-width: 100px;
+}
+
+#table-levels th {
+  font-weight: bold;
+}
+
+#no-levels-message {
+  margin-top: 20px;
+  color: #6c757d;
+  text-align: center;
+}
+
+#add-level {
+  display: flex;
+  justify-content: center;
+}
+
