@@ -1,0 +1,73 @@
+# Project Developer
+
+O `Project Developer` é um sistema onde é possivel cadastrar desenvolvedores e seus nivéis técnicos e lista eles em um aplicação web.
+
+## Tecnologias
+
+- PHP
+- Laravel
+- MySQL
+- Docker
+- Docker Compose
+- Angular
+
+## ADR
+
+Acho que a melhor forma de explicar o projeto é através dos ADRs (Architectural Decision Records), que são documentos que capturam uma decisão arquitetural feita em um projeto.
+
+### ADR 1: Backend
+
+O backend foi desenvolvido em PHP com o framework Laravel, foi escolhido o Laravel por ser um framework robusto e com uma curva de aprendizado baixa, além de ser um dos frameworks mais utilizados no mercado.
+
+Como o Laravel é um framework que segue o padrão MVC, acaba não sendo necessário aplicar Design System muito complexos para um projeto de poucos domínios. Por causa disso, optei por separar os domínios em pastas e especificar as regras de negócio em cada uma delas.
+
+Sabemos que o DDD vai muito além de separar as regras de negócio em pastas, mas para um projeto pequeno como esse, acredito que seja suficiente.
+
+Mesmo sabendo que o Eloquent acaba sendo incorporado ao domínio, optei por criar um repositório para cada domínio, para que seja possível trocar o ORM sem afetar a regra de negócio.
+
+Para autenticaçao utilizei o Sanctum por ser o mais conhecido, porém sei da utilidade do Breeze e do Passport e quando usar cada uma dessas ferramentas.
+
+O retorno dos endpoints foram padronizados por um Trait para não precisar ficar repetindo o código em todos os controllers. Nesse caso achei mais interessante usar esse caminho do que criar um Transformer, como antigamente, ou usar os Resources, como é feito atualmente.
+
+Em momentos de consultas mais críticas, optei por usar o DB Transaction para garantir a integridade dos dados.
+
+### ADR 2: Frontend
+
+O frontend foi desenvolvido em Angular, e foi escolhido por ser um framework que eu menos trabalhei.
+
+Utilizei ele para demonstrar a minha capacidade de estudo e de se adaptar a diferentes tecnologias.
+
+O frontend foi separado em módulos, para que seja possível adicionar novas funcionalidades sem afetar o que já foi feito.
+
+A estilização foi usando somente CSS, pois está bem simples.
+
+### ADR 3: Banco de Dados
+
+O banco de dados escolhido foi o MySQL, por ser um dos mais utilizados no mercado e por ser um banco de dados relacional e fazer mais sentido nesse projeto.
+
+A modelagem do banco de dados foi feita de acordo com o que foi pedido no desafio.
+
+
+## Como rodar o projeto
+
+// TODO
+
+## Documentaçao dos endpoints
+
+// TODO
+
+## Como rodar os testes
+
+// TODO
+
+## Como rodar o frontend
+
+// TODO
+
+## Como rodar o backend
+
+// TODO
+
+## Hospedagem do projeto
+
+// TODO
