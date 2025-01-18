@@ -1,0 +1,41 @@
+<div *ngIf="isLoading">
+  <p>Loading...</p>
+</div>
+
+<div *ngIf="!isLoading && errorMessage">
+  <p class="error">{{ errorMessage }}</p>
+</div>
+
+<div *ngIf="!isLoading && !errorMessage" id="levels-content">
+  <div id="add-level">
+    <input type="text" [(ngModel)]="newLevelName" placeholder="New Level Name">
+    <button id="btn-add" (click)="addLevel()">Add Level</button>
+  </div>
+
+  <table id="table-levels">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Level</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let level of levels">
+      <td>{{ level.id }}</td>
+      <td>
+        <span *ngIf="!level.isEditing">{{ level.level }}</span>
+        <input *ngIf="level.isEditing" type="text" [(ngModel)]="level.level" />
+      </td>
+      <td>
+        <button *ngIf="!level.isEditing" (click)="editLevel(level)">Edit</button>
+        <button *ngIf="level.isEditing" (click)="updateLevel(level)">Save</button>
+        <button *ngIf="level.isEditing" (click)="cancelEdit(level)">Cancel</button>
+        <button class="btn-delete" (click)="deleteLevel(level)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="levels.length === 0">No levels found</p>
+</div>
