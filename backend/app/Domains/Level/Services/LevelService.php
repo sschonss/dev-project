@@ -44,9 +44,15 @@ class LevelService
     public function deleteLevel(int $id): ?Level
     {
         $level = $this->levelRepository->find($id);
+
         if (!$level) {
             return null;
         }
+        
+        if ($level->developers->isNotEmpty()) {
+            return null;
+        }
+
         return $this->levelRepository->delete($level);
     }
 }

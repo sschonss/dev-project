@@ -2,11 +2,11 @@
   <p>Loading...</p>
 </div>
 
-<div *ngIf="!isLoading && errorMessage">
-  <p class="error">{{ errorMessage }}</p>
+<div *ngIf="errorMessage" id="error">
+  {{ errorMessage }}
 </div>
 
-<div *ngIf="!isLoading && !errorMessage" id="levels-content">
+<div *ngIf="!isLoading" id="levels-content">
   <div id="add-level">
     <input type="text" [(ngModel)]="newLevelName" placeholder="New Level Name">
     <button id="btn-add" (click)="addLevel()">Add Level</button>

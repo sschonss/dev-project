@@ -7,7 +7,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('developers', 'App\Http\Controllers\DeveloperController')
+Route::apiResource('developers', 'App\Domains\Developer\Controllers\DeveloperController')
     ->middleware('auth:sanctum');
 
 Route::apiResource('levels', 'App\Domains\Level\Controllers\LevelController')

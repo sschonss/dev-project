@@ -11,7 +11,6 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule]
 })
-
 export class LevelsComponent implements OnInit {
   levels: any[] = [];
   isLoading = true;
@@ -32,8 +31,8 @@ export class LevelsComponent implements OnInit {
   }
 
   fetchLevels(): void {
+    this.errorMessage = '';
     const headers = this.getHeaders();
-
     this.http.get<any>(`${environment.apiUrl}/levels`, { headers }).subscribe({
       next: (response) => {
         this.levels = Array.isArray(response.data) ? response.data : [];
@@ -47,8 +46,8 @@ export class LevelsComponent implements OnInit {
   }
 
   addLevel() {
+    this.errorMessage = '';
     const headers = this.getHeaders();
-
     this.http.post<any>(`${environment.apiUrl}/levels`, { level: this.newLevelName }, { headers }).subscribe({
       next: (response: {data: any, message: string, status: string}) => {
         this.levels.push(response.data);
@@ -62,23 +61,31 @@ export class LevelsComponent implements OnInit {
 
   handleError(error: any): void {
     const status = error?.status;
-    if (status === 401) {
-      this.errorMessage = 'You are not authorized to view this page. Please log in.';
+    switch (status) {
+      case 400:
+        this.errorMessage = 'Invalid input. Please check your input and try again.';
+        break;
+      case 401:
+        this.errorMessage = 'You are not authorized to view this page. Please log in.';
+        break;
+      case 404:
+        this.errorMessage = 'Resource not found. Please try again.';
+        break;
+      default:
+        if (status >= 405 && status < 500) {
+          this.errorMessage = 'Client error. Please check your input and try again.';
+        } else if (status >= 500) {
+          this.errorMessage = 'Server error. Please try again later.';
+        } else {
+          this.errorMessage = '';
+        }
+        break;
     }
-    if (status === 404) {
-      this.errorMessage = '';
-    }
-    if (status >= 405 && status < 500) {
-      this.errorMessage = 'Client error. Please check your input and try again.';
-    }
-    if (status >= 500) {
-      this.errorMessage = 'Server error. Please try again later.';
-    }
-
-    console.error('Error fetching levels:', error);
+    console.error('Error:', error);
   }
 
   deleteLevel(level: any) {
+    this.errorMessage = '';
     const headers = this.getHeaders();
     this.http.delete(`${environment.apiUrl}/levels/${level.id}`, { headers }).subscribe({
       next: () => {
@@ -89,6 +96,7 @@ export class LevelsComponent implements OnInit {
   }
 
   updateLevel(level: any) {
+    this.errorMessage = '';
     const headers = this.getHeaders();
     this.http.put(`${environment.apiUrl}/levels/${level.id}`, { level: level.level }, { headers }).subscribe({
       next: () => {
@@ -99,10 +107,12 @@ export class LevelsComponent implements OnInit {
   }
 
   editLevel(level: any) {
+    this.errorMessage = '';
     level.isEditing = true;
   }
 
   cancelEdit(level: any) {
     level.isEditing = false;
+    this.errorMessage = '';
   }
 }
