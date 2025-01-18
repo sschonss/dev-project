@@ -1,0 +1,35 @@
+<form (submit)="onSubmit($event)">
+    <div class="form-group">
+        <label for="levelName">Level Name</label>
+        <input type="text" id="levelName" [(ngModel)]="levelName" name="levelName" required />
+    </div>
+    <button type="submit" class="btn-submit">Save</button>
+</form>
+
+<div class="form-group">
+    <button class="btn-search" (click)="onSearch($event)">Search Levels</button>
+</div>
+
+<div *ngIf="levels.length > 0">
+    <table class="levels-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let level of levels">
+                <td>{{ level.name }}</td>
+                <td>
+                    <button class="btn-update" (click)="onUpdate(level.id, $event)">Update</button>
+                    <button class="btn-delete" (click)="onDelete(level.id, $event)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="levels.length === 0">
+    <p>No levels found.</p>
+</div>
