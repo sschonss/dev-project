@@ -48,22 +48,23 @@ O banco de dados escolhido foi o MySQL, por ser um dos mais utilizados no mercad
 
 A modelagem do banco de dados foi feita de acordo com o que foi pedido no desafio.
 
-
-## Como rodar o projeto
-
-// TODO
-
 ## Documentaçao dos endpoints
 
 // TODO
 
 ## Como rodar os testes
 
-// TODO
+Acesse o container via bash e rode o comando `php artisan test` para rodar os testes.
+
+Para acessar o container, rode o comando `docker-compose exec backend bash`.
 
 ## Como rodar o frontend
 
-// TODO
+Acesse o projeto e rode o comando `npm install` para instalar as dependências.
+
+Depois rode o comando `ng serve` para subir o projeto ou `npm start` para subir o projeto.
+
+Você pode rodar  com docker seguinte a documentação mais abaixo.
 
 ## Como rodar o backend
 
@@ -83,18 +84,18 @@ O `force-recreate` é para forçar a recriação dos containers, o `remove-orpha
 
 Isso não é obrigatório, mas ajuda a manter o ambiente limpo e caso onde se roda muitos containers, é bom para liberar espaço.
 
+Caso queria rodar o projeto completo, siga a documentação abaixo.
+
+## Como rodar o projeto
+
+Ao clonar o projeto, é necessário rodar o comando `docker-compose up --force-recreate --remove-orphans` para subir o projeto.
+
+O `force-recreate` é para forçar a recriação dos containers, o `remove-orphans` é para remover os containers que não estão sendo usados.
+
+As imagens do projeto estão no Docker Hub, então não é necessário rodar o comando `docker-compose build`.
+
 ## Hospedagem do projeto
 
-// TODO
+O backend desse projeto está hospedado na Digital Ocean no endereço `http://104.248.225.85`
 
 ## Pipeline
-
-## O que falta ainda
-
-- Fluxo de Level (BE + FE)
-- Fluxo de Developer (BE + FE)
-- Testes de integração
-- Pipeline
-- Documentação dos endpoints
-- Hospedagem do projeto
-- Docker Compose Geral

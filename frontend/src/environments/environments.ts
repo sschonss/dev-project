@@ -1,8 +1,4 @@
-
-
-require('dotenv').config();
-
 export const environment = {
-  production: '${process.env.PRODUCTION}',
-  apiUrl: '${process.env.API_URL}',
+  production: true,
+  apiUrl: ' http://104.248.225.85/api,',
 };
