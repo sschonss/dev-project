@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
-  padding-top: 80px; /* Space for fixed header */
+  padding-top: 80px; 
 }
 
 #loading-container, #error-container {
@@ -24,7 +24,7 @@
   border-radius: 5px;
   width: 100%;
   box-sizing: border-box;
-  max-width: 300px; /* Adjusted max-width */
+  max-width: 300px; 
   margin-right: 15px;
   flex: 1;
 }
