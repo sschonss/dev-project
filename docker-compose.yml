@@ -24,7 +24,7 @@ services:
   frontend:
     image: 'sschonss/frontend-dev-project'
     ports:
-      - '4200:4200'
+      - '4200:80'
     networks:
         - dev-net
 networks:
