@@ -50,7 +50,9 @@ A modelagem do banco de dados foi feita de acordo com o que foi pedido no desafi
 
 ## Documentaçao dos endpoints
 
-// TODO
+A documentação da API está em `doc/Developers Project.md`.
+
+Dentro da pasta `doc` tem um arquivo da collection do Postman para facilitar os testes.
 
 ## Como rodar os testes
 
@@ -99,3 +101,5 @@ As imagens do projeto estão no Docker Hub, então não é necessário rodar o c
 O backend desse projeto está hospedado na Digital Ocean no endereço `http://104.248.225.85`
 
 ## Pipeline
+
+O pipeline do projeto está no Github Actions e está configurado para rodar os testes do backend toda vez que uma PR é aberta ou PUSH é feito.
