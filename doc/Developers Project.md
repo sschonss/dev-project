@@ -5,7 +5,7 @@
 ## End-point: GET Level
 ### Method: GET
 >```
->{{app_url_api}}/levels/1
+>http://104.248.225.85:8000/api/levels/1
 >```
 ### Headers
 
@@ -20,7 +20,7 @@
 ## End-point: PUT Level
 ### Method: PUT
 >```
->{{app_url_api}}/levels/50
+>http://104.248.225.85:8000/api/levels/50
 >```
 ### Headers
 
@@ -50,7 +50,7 @@
 ## End-point: DELETE Level
 ### Method: DELETE
 >```
->{{app_url_api}}/levels/4
+>http://104.248.225.85:8000/api/levels/4
 >```
 ### Headers
 
@@ -72,7 +72,7 @@
 ## End-point: GET  All Levels
 ### Method: GET
 >```
->{{app_url_api}}/levels
+>http://104.248.225.85:8000/api/levels
 >```
 ### Headers
 
@@ -94,7 +94,7 @@
 ## End-point: POST Level
 ### Method: POST
 >```
->{{app_url_api}}/levels
+>http://104.248.225.85:8000/api/levels
 >```
 ### Headers
 
@@ -126,7 +126,7 @@
 ## End-point: GET Developer
 ### Method: GET
 >```
->{{app_url_api}}/developers/1
+>http://104.248.225.85:8000/api/developers/1
 >```
 ### Headers
 
@@ -148,7 +148,7 @@
 ## End-point: PUT Developer
 ### Method: PUT
 >```
->{{app_url_api}}/developers/1
+>http://104.248.225.85:8000/api/developers/1
 >```
 ### Headers
 
@@ -178,7 +178,7 @@
 ## End-point: DELETE Developer
 ### Method: DELETE
 >```
->{{app_url_api}}/developers/2
+>http://104.248.225.85:8000/api/developers/2
 >```
 ### Headers
 
@@ -208,7 +208,7 @@
 ## End-point: GET  All Developers
 ### Method: GET
 >```
->{{app_url_api}}/developers
+>http://104.248.225.85:8000/api/developers
 >```
 ### Headers
 
@@ -230,7 +230,7 @@
 ## End-point: POST Developer
 ### Method: POST
 >```
->{{app_url_api}}/developers
+>http://104.248.225.85:8000/api/developers
 >```
 ### Headers
 
@@ -266,7 +266,7 @@
 ## End-point: Register
 ### Method: POST
 >```
->{{app_url_api}}/register
+>http://104.248.225.85:8000/api/register
 >```
 ### Headers
 
@@ -291,7 +291,7 @@
 ## End-point: Login
 ### Method: POST
 >```
->{{app_url_api}}/login
+>http://104.248.225.85:8000/api/login
 >```
 ### Headers
 

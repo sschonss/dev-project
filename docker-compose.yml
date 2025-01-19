@@ -3,7 +3,7 @@ services:
   backend:
     image: 'sschonss/backend-dev-project'
     ports:
-      - '80:8000'
+      - '8000:8000'
     networks:
       - dev-net
 #  mysql:
@@ -24,7 +24,7 @@ services:
   frontend:
     image: 'sschonss/frontend-dev-project'
     ports:
-      - '4200:80'
+      - '80:80'
     networks:
         - dev-net
 networks:

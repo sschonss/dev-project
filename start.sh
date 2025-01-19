@@ -1,0 +1,1 @@
+docker run -d -p 80:80 sschonss/frontend-dev-project  && docker run -d -p 8000:8000 sschonss/backend-dev-project

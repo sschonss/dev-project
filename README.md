@@ -90,15 +90,15 @@ Caso queria rodar o projeto completo, siga a documentação abaixo.
 
 ## Como rodar o projeto
 
-Ao clonar o projeto, é necessário rodar o comando `docker-compose up --force-recreate --remove-orphans` para subir o projeto.
+Ao clonar o projeto, é necessário acessar a pasta `backend` e rodar o comando `docker build -t sschonss/backend-dev-project .` para criar a imagem do backend.
 
-O `force-recreate` é para forçar a recriação dos containers, o `remove-orphans` é para remover os containers que não estão sendo usados.
+Depois, é necessário acessar a pasta `frontend` e rodar o comando `docker build -t sschonss/frontend-dev-project .` para criar a imagem do frontend.
 
-As imagens do projeto estão no Docker Hub, então não é necessário rodar o comando `docker-compose build`.
+Depois, é necessário rodar o comando `docker-compose up --force-recreate --remove-orphans` para subir o projeto.
 
 ## Hospedagem do projeto
 
-O backend desse projeto está hospedado na Digital Ocean no endereço `http://104.248.225.85`
+O backend desse projeto está hospedado na Digital Ocean no endereço `http://104.248.225.85/`
 
 ## Pipeline
 
