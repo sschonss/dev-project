@@ -10,12 +10,8 @@ RUN npm install -g @angular/cli
 
 COPY . .
 
-RUN ng build
+RUN npm install
 
-FROM nginx:alpine
+EXPOSE 4200
 
-COPY --from=build /app/dist/frontend /usr/share/nginx/html
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "start"]
