@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class DeveloperRepository
 {
-    protected Developer $level;
+    protected Developer $developer;
     public function __construct()
     {
         $this->developer = new Developer();
