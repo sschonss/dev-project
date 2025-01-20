@@ -96,6 +96,12 @@ Depois, é necessário acessar a pasta `frontend` e rodar o comando `docker buil
 
 Depois, é necessário rodar o comando `docker-compose up --force-recreate --remove-orphans` para subir o projeto.
 
+Segue link das imagens no Docker Hub: 
+- Frontend: https://hub.docker.com/repository/docker/sschonss/frontend-dev-project/general
+- Backend: https://hub.docker.com/repository/docker/sschonss/backend-dev-project/general
+
+Eu recomendo fortemente que você faça o build na sua máquina pois as imagens no Docker Hub estão usando a arquitetura arm e pode não ser compatível em alguns computadores.
+
 ## Hospedagem do projeto
 
 O backend desse projeto está hospedado na Digital Ocean no endereço `http://104.248.225.85/`
