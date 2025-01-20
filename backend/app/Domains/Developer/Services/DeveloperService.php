@@ -4,8 +4,6 @@ namespace App\Domains\Developer\Services;
 
 use App\Domains\Developer\Models\Developer;
 use App\Domains\Developer\Repositories\DeveloperRepository;
-use App\Domains\Level\Models\Level;
-use App\Domains\Level\Repositories\LevelRepository;
 use Illuminate\Database\Eloquent\Collection;
 
 class DeveloperService
